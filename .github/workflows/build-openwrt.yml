@@ -20,18 +20,21 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/siwind/openwrt
-  REPO_BRANCH: master
+  # Gunakan repo resmi ImmortalWrt untuk hasil lebih stabil
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  # Branch openwrt-18.06-k5.4 adalah basis "ImmortalWrt 19" yang populer untuk MT7621
+  REPO_BRANCH: openwrt-18.06-k5.4 
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
-  UPLOAD_COWTRANSFER: true
+  # Cowtransfer & Wetransfer sering error/lambat, lebih baik gunakan Upload Artifact bawaan GitHub
+  UPLOAD_COWTRANSFER: false 
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: false
-  TZ: Asia/Shanghai
+  TZ: Asia/Jakarta
 
 jobs:
   build:
